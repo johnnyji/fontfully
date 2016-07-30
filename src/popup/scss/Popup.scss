@@ -1,0 +1,13 @@
+:local(.main) {
+  min-width: 200px;
+}
+
+:local(.header) {
+  font-family: sans-serif;
+  font-size: 24px;
+}
+
+:local(.fonts) {
+  display: flex;
+  flex-direction: column;
+}

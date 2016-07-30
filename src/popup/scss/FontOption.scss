@@ -1,0 +1,10 @@
+:local(.main) {
+  background: transparent;
+  border: none;
+  border-top: 1px solid black;
+  outline: 0;
+  padding: 4px 8px;
+  &:hover {
+    cursor: pointer;
+  }
+}
