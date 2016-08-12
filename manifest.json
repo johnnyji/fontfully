@@ -7,6 +7,10 @@
     "default_title": "Change this page's font!",
     "default_popup": "popup.html"
   },
+  "background": {
+    "scripts": ["./build/events.js"],
+    "persistent": false
+  },
   "content_scripts": [
     {
       "matches": [

@@ -11,7 +11,7 @@ const PLUGINS = [
 
 module.exports = {
   entry: {
-    // After webpack transpiles, this file will become `options.js`
+    'events.js': path.join(ROOT, 'src/events/index.js'),
     'options.js': path.join(ROOT, 'src/options/index.js'),
     'content.js': path.join(ROOT, 'src/content/index.js'),
     'popup.js': path.join(ROOT, 'src/popup/index.js'),
