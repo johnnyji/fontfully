@@ -57,4 +57,7 @@ using the `filename` as the class:
 ---
 
 
-Made with love by [Me!](http://johnnyji.com)
+###Contributors
+
+- [Me!](http://johnnyji.com)
+- [Linda Lin!](https://ca.linkedin.com/in/lindasyl)
