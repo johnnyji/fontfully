@@ -31,10 +31,10 @@ external source.
 
 **Now that you've created the font object. Do the following:**
 
-1. Update the `FONTS` array in `src/shared/utils/config.js` with the new font object.
+- Update the `FONTS` array in `src/shared/utils/config.js` with the new font object.
 Make sure fonts are organized alphabetically
 
-2. Update the `font_styles/` folder with a new stylesheet for your font, using the `filename` as
+- Update the `font_styles/` folder with a new stylesheet for your font, using the `filename` as
 the name for the css file (`roboto.css`):
 
 ```css
@@ -44,10 +44,11 @@ the name for the css file (`roboto.css`):
   font-family: 'Roboto' !important;
 }
 ```
-3. If the font has an external source, we want to make sure that source is either
+
+- If the font has an external source, we want to make sure that source is either
 physically written to disk by webpack or included in `popup.html`
 
-4. Update `popup/scss/FontOption.scss` with a new class declaration for your new font, once again
+- Update `popup/scss/FontOption.scss` with a new class declaration for your new font, once again
 using the `filename` as the class:
 
 ```css
