@@ -17,7 +17,7 @@ export default class Popup extends Component {
   };
 
   componentWillUpdate (nextState) {
-    if (this.state.selectedFont && !nextState.selectedFont) {
+    if (!nextState.selectedFont) {
       window.close();
     }
   }
@@ -69,7 +69,7 @@ export default class Popup extends Component {
   _handleRemoveFonts = () => {
     getCurrentTab((tab) => {
       chrome.tabs.sendMessage(tab.id, FontActionCreators.removeFonts(), () => {
-        this.setState({selectedFont: null});
+        window.close();
       });
     });
   };

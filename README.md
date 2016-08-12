@@ -44,8 +44,10 @@ the name for the css file (`roboto.css`):
   font-family: 'Roboto' !important;
 }
 ```
+3. If the font has an external source, we want to make sure that source is either
+physically written to disk by webpack or included in `popup.html`
 
-3. Update `popup/scss/FontOption.scss` with a new class declaration for your new font, once again
+4. Update `popup/scss/FontOption.scss` with a new class declaration for your new font, once again
 using the `filename` as the class:
 
 ```css
