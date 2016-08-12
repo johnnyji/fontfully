@@ -1,10 +1,25 @@
+@import './partials/colors';
+
 :local(.main) {
   background: transparent;
   border: none;
-  border-top: 1px solid black;
+  font-size: 16px;
   outline: 0;
-  padding: 4px 8px;
+  padding: 6px 8px;
+  transition: background 250ms ease-in-out;
   &:hover {
+    background-color: $brand-primary-light;
+    color: #FFF;
     cursor: pointer;
   }
 }
+
+:local(.selected) {
+  background-color: $brand-primary;
+}
+
+:local(.arial) { font-family: arial }
+:local(.courier) { font-family: courier }
+:local(.cursive) { font-family: cursive }
+:local(.monospace) { font-family: monospace }
+:local(.open_sans) { font-family: 'Open Sans' }

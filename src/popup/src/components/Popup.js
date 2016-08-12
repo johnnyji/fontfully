@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
+import FontActionCreators from '../../../action_creators/FontActionCreators';
 import FontOption from './FontOption';
 import {FONTS} from '../../../shared/utils/config';
+import getCurrentTab from '../utils/getCurrentTab';
 import Immutable from 'immutable';
 import pureRender from 'pure-render-decorator';
 import styles from '../../scss/Popup.scss';
@@ -14,12 +16,20 @@ export default class Popup extends Component {
     selectedFont: null
   };
 
+  componentWillUpdate (nextState) {
+    if (this.state.selectedFont && !nextState.selectedFont) {
+      window.close();
+    }
+  }
+
   componentDidUpdate (_, prevState) {
-    if (!Immutable.is(this.state.selectedFont, prevState.selectedFont)) {
+    const {selectedFont} = this.state;
+    // When the user chooses a new font
+    if (!Immutable.is(selectedFont, prevState.selectedFont)) {
       // Finds the current tab
-      chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
+      getCurrentTab((tab) => {
         // Change the font to the newly selected one
-        chrome.tabs.sendMessage(tabs[0].id, {font: this.state.selectedFont}, () => {
+        chrome.tabs.sendMessage(tab.id, FontActionCreators.changeFont(selectedFont), () => {
           // Close the popup once we've successfully set the font
           window.close();
         });
@@ -39,7 +49,14 @@ export default class Popup extends Component {
 
     return (
       <div className={styles.main}>
-        <h1 className={styles.header}>Change This Pages Font!</h1>
+        <button
+          className={styles.resetButton}
+          onClick={this._handleRemoveFonts}>
+          reset
+        </button>
+        <header className={styles.header}>
+          Change This Pages Font!
+        </header>
         <div className={styles.fonts}>{fontOptions}</div>
       </div>
     );
@@ -47,6 +64,14 @@ export default class Popup extends Component {
 
   _handleSelectFont = (selectedFont) => {
     this.setState({selectedFont});
+  };
+
+  _handleRemoveFonts = () => {
+    getCurrentTab((tab) => {
+      chrome.tabs.sendMessage(tab.id, FontActionCreators.removeFonts(), () => {
+        this.setState({selectedFont: null});
+      });
+    });
   };
 
 }

@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import classNames from 'classnames';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import pureRender from 'pure-render-decorator';
 import styles from '../../scss/FontOption.scss';
@@ -19,9 +20,16 @@ export default class FontOption extends Component {
   };
   
   render() {
+    const {font, isSelected} = this.props;
+    const classes = classNames(
+      styles.main,
+      styles[font.get('filename')],
+      isSelected ? styles.selected : null
+    );
+
     return (
-      <button className={styles.main} onClick={this._handleClick}>
-        {this.props.font.get('name')}
+      <button className={classes} onClick={this._handleClick}>
+        {font.get('name')}
       </button>
     );
   }

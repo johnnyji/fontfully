@@ -11,6 +11,7 @@
   },
   "author": "Johnny Ji",
   "dependencies": {
+    "classnames": "^2.2.5",
     "immutable": "^3.8.1",
     "node-sass": "^3.8.0",
     "pure-render-decorator": "^1.1.1",

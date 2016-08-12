@@ -1,0 +1,4 @@
+export default {
+  CHANGE_FONT: 'CHANGE_FONT',
+  REMOVE_FONTS: 'REMOVE_FONTS'
+};

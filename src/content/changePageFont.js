@@ -1,3 +1,5 @@
+import {fontfullyTag} from '../shared/utils/config';
+
 export default (font) => {
   const {filename, src: fontSrc} = font;
   const cssPath = chrome.extension.getURL(`../../../../font_styles/${filename}.css`);
@@ -7,6 +9,7 @@ export default (font) => {
   cssLink.setAttribute('rel', 'stylesheet');
   cssLink.setAttribute('type', 'text/css');
   cssLink.setAttribute('href', cssPath);
+  cssLink.setAttribute('name', fontfullyTag);
 
   // If the font requires an external source, we must first include the
   // link to the external source
@@ -15,6 +18,7 @@ export default (font) => {
     srcLink.setAttribute('rel', 'stylesheet');
     srcLink.setAttribute('type', 'text/css');
     srcLink.setAttribute('href', fontSrc);
+    srcLink.setAttribute('name', fontfullyTag);
 
     document.head.appendChild(srcLink);
   }
