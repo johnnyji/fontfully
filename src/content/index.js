@@ -3,6 +3,7 @@ import FontActionTypes from '../action_types/FontActionTypes';
 import removeFonts from './removeFonts';
 
 chrome.runtime.onMessage.addListener(({type, data}, sender, sendResponse) => {
+
   if (!type) return sendResponse({});
 
   switch (type) {
