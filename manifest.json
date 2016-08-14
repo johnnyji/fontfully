@@ -4,10 +4,10 @@
   "description": "Change the font of any website",
   "version": "1.0.0",
   "icons": {
-    "16": "./assets/icons/FONTFULLY16x16.png",
-    "32": "./assets/icons/FONTFULLY32x32.png",
-    "48": "./assets/icons/FONTFULLY48x48.png",
-    "128": "./assets/icons/FONTFULLY128x128.png"
+    "16": "./assets/icons/16x16.png",
+    "32": "./assets/icons/32x32.png",
+    "48": "./assets/icons/48x48.png",
+    "128": "./assets/icons/128x128.png"
   },
   "browser_action": {
     "default_title": "Change this page's font!",
