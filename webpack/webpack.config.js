@@ -56,6 +56,10 @@ module.exports = {
         test: /\.css$/,
         include: [SRC],
         loader: 'style!css!postcss'
+      }, {
+        test: /\.(jpg|png)$/,
+        loader: 'url?limit=25000',
+        include: [SRC]
       }
     ],
     noParse: /\.min\.js/

@@ -1,11 +1,11 @@
 {
-  "name": "PersonalQuote",
-  "version": "0.0.1",
+  "name": "Fontfully",
+  "version": "1.0.0",
   "private": true,
-  "description": "A personal quote tab",
+  "description": "Change the font of any website",
   "scripts": {
     "clean": "rm -rf ./build",
-    "deploy": "zip -r ../fontfully.zip . -x node_modules/\\* -x webpack/\\* -x src/\\* -x .\\* -x cofig.example.js",
+    "deploy": "zip -r ../fontfully.zip . -x node_modules/\\* -x webpack/\\* -x src/\\* -x .\\* -x config.example.js",
     "eslint": "eslint ./src",
     "server-dev": "webpack --watch --progress --colors --display-error-details -d --config ./webpack/webpack.config.js",
     "validate-webpack": "webpack-validator ./webpack/webpack.config.js"
@@ -38,11 +38,13 @@
     "eslint-plugin-react": "^5.2.2",
     "exports-loader": "^0.6.3",
     "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
     "imports-loader": "^0.6.5",
     "json-loader": "^0.5.4",
     "postcss-loader": "^0.9.1",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.12.11"
   }
 }

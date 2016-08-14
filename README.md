@@ -55,6 +55,8 @@ using the `filename` as the class:
 .roboto { font-family: 'Roboto' }
 ```
 
+- Update the `web_accessible_resources` portion of `manifest.json` with the path to `font_styles/roboto.css`
+
 ---
 
 

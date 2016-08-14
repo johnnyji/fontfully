@@ -4,6 +4,7 @@ import FontOption from './FontOption';
 import {FONTS} from '../../../shared/utils/config';
 import getCurrentTab from '../utils/getCurrentTab';
 import Immutable from 'immutable';
+import Icon from '../../../shared/components/ui/Icon';
 import pureRender from 'pure-render-decorator';
 import styles from '../../scss/Popup.scss';
 
@@ -52,11 +53,9 @@ export default class Popup extends Component {
         <button
           className={styles.resetButton}
           onClick={this._handleRemoveFonts}>
-          reset
+          <Icon icon='refresh' />
         </button>
-        <header className={styles.header}>
-          Change This Pages Font!
-        </header>
+        <div className={styles.header} />
         <div className={styles.fonts}>{fontOptions}</div>
       </div>
     );
