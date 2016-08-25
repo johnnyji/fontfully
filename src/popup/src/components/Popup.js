@@ -54,21 +54,30 @@ export default class Popup extends Component {
 
     return (
       <div className={styles.main}>
-        <TextField
-          hintText='Search fonts...'
-          fullWidth={true}
-          onChange={this._handleChange}
-          value={filter} />
-        <button
-          className={styles.resetButton}
-          onClick={this._handleRemoveFonts}>
-          <Icon icon='refresh' />
-        </button>
-        <div className={styles.header} />
-        <div className={styles.fonts}>{fontOptions}</div>
+        <header>
+          <TextField
+            hintText='Search fonts...'
+            fullWidth={true}
+            onChange={this._handleChange}
+            value={filter} />
+          <button
+            className={styles.resetButton}
+            onClick={this._handleRemoveFonts}>
+            <Icon icon='refresh' />
+          </button>
+        </header>
+        <div className={styles.fonts}>
+          {fontOptions.size ? fontOptions : this._renderNoFontsMessage()}
+        </div>
       </div>
     );
   }
+  
+  _renderNoFontsMessage = () => {
+    return (
+      <div>No results</div>
+    );
+  };
 
   _handleChange = (value) => {
     this.setState({filter: value.trim().toLowerCase()});
