@@ -33,9 +33,15 @@
   ],
   "web_accessible_resources": [
     "font_styles/arial.css",
+    "font_styles/comic_sans.css",
     "font_styles/courier.css",
     "font_styles/cursive.css",
+    "font_styles/georgia.css",
+    "font_styles/lato.css",
     "font_styles/monospace.css",
-    "font_styles/open_sans.css"
+    "font_styles/open_sans.css",
+    "font_styles/roboto.css",
+    "font_styles/tahoma.css",
+    "font_styles/times_new_roman.css"
   ]
 }

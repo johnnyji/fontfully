@@ -1,4 +1,5 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 const path = require('path');
 
 const ROOT = path.join(__dirname, './../');
@@ -31,7 +32,8 @@ module.exports = {
   },
   plugins: [
     // Extracts all the styles into a single `style.css` file served at the `publicPath`
-    new ExtractTextPlugin('style.css', {allChunks: true})
+    new ExtractTextPlugin('style.css', {allChunks: true}),
+    new DashboardPlugin()
   ],
   module: {
     loaders: [

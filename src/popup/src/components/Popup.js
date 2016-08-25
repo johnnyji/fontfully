@@ -5,7 +5,6 @@ import {FONTS} from '../../../shared/utils/config';
 import getCurrentTab from '../utils/getCurrentTab';
 import Icon from '../../../shared/components/ui/Icon';
 import Immutable from 'immutable';
-import TextField from 'material-ui/TextField';
 import pureRender from 'pure-render-decorator';
 import styles from '../../scss/Popup.scss';
 
@@ -18,12 +17,6 @@ export default class Popup extends Component {
     filter: '',
     selectedFont: null
   };
-
-  componentWillUpdate (nextState) {
-    if (!nextState.selectedFont) {
-      window.close();
-    }
-  }
 
   componentDidUpdate (_, prevState) {
     const {selectedFont} = this.state;
@@ -42,8 +35,9 @@ export default class Popup extends Component {
 
   render() {
     const {filter, selectedFont} = this.state;
+    const filterValue = filter.toLowerCase().trim();
     const fontOptions = FONTS
-      .filter((font) => font.get('name').toLowerCase().includes(filter))
+      .filter((font) => font.get('name').toLowerCase().includes(filterValue))
       .map((font, i) => (
         <FontOption
           font={font}
@@ -54,11 +48,10 @@ export default class Popup extends Component {
 
     return (
       <div className={styles.main}>
-        <header>
-          <TextField
-            hintText='Search fonts...'
-            fullWidth={true}
+        <header className={styles.header}>
+          <input
             onChange={this._handleChange}
+            placeholder='Search fonts...'
             value={filter} />
           <button
             className={styles.resetButton}
@@ -79,8 +72,8 @@ export default class Popup extends Component {
     );
   };
 
-  _handleChange = (value) => {
-    this.setState({filter: value.trim().toLowerCase()});
+  _handleChange = ({target: {value: filter}}) => {
+    this.setState({filter});
   };
 
   _handleSelectFont = (selectedFont) => {

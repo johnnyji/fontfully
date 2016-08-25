@@ -7,10 +7,21 @@
   max-height: 400px;
 }
 
+:local(.header) {
+  display: flex;
+  margin-top: -5px;
+}
+
 :local(.fonts) {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+}
+
+:local(.input) {
+  border: 0;
+  outline: 0;
+  width: 180px;
 }
 
 :local(.resetButton) {
@@ -19,10 +30,8 @@
   color: $gray;
   cursor: pointer;
   font-size: 12px;
+  margin-top: 5px;
   outline: 0;
-  position: absolute;
-  top: 4px;
-  right: 4px;
   transition: color 250ms ease-in-out;
   &:hover {
     color: $brand-primary;
