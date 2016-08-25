@@ -3,8 +3,9 @@ import FontActionCreators from '../../../action_creators/FontActionCreators';
 import FontOption from './FontOption';
 import {FONTS} from '../../../shared/utils/config';
 import getCurrentTab from '../utils/getCurrentTab';
-import Immutable from 'immutable';
 import Icon from '../../../shared/components/ui/Icon';
+import Immutable from 'immutable';
+import TextField from 'material-ui/TextField';
 import pureRender from 'pure-render-decorator';
 import styles from '../../scss/Popup.scss';
 
@@ -14,6 +15,7 @@ export default class Popup extends Component {
   static displayName = 'Popup';
 
   state = {
+    filter: '',
     selectedFont: null
   };
 
@@ -39,17 +41,24 @@ export default class Popup extends Component {
   }
 
   render() {
-    const {selectedFont} = this.state;
-    const fontOptions = FONTS.map((font, i) => (
-      <FontOption
-        font={font}
-        isSelected={Immutable.is(font, selectedFont)}
-        key={i}
-        onSelect={this._handleSelectFont} />
-    ));
+    const {filter, selectedFont} = this.state;
+    const fontOptions = FONTS
+      .filter((font) => font.get('name').toLowerCase().includes(filter))
+      .map((font, i) => (
+        <FontOption
+          font={font}
+          isSelected={Immutable.is(font, selectedFont)}
+          key={i}
+          onSelect={this._handleSelectFont} />
+      ));
 
     return (
       <div className={styles.main}>
+        <TextField
+          hintText='Search fonts...'
+          fullWidth={true}
+          onChange={this._handleChange}
+          value={filter} />
         <button
           className={styles.resetButton}
           onClick={this._handleRemoveFonts}>
@@ -60,6 +69,10 @@ export default class Popup extends Component {
       </div>
     );
   }
+
+  _handleChange = (value) => {
+    this.setState({filter: value.trim().toLowerCase()});
+  };
 
   _handleSelectFont = (selectedFont) => {
     this.setState({selectedFont});
