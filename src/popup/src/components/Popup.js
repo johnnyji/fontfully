@@ -50,13 +50,14 @@ export default class Popup extends Component {
       <div className={styles.main}>
         <header className={styles.header}>
           <input
+            className={styles.input}
             onChange={this._handleChange}
             placeholder='Search fonts...'
             value={filter} />
           <button
             className={styles.resetButton}
             onClick={this._handleRemoveFonts}>
-            <Icon icon='refresh' />
+            <Icon icon='refresh' size={20} />
           </button>
         </header>
         <div className={styles.fonts}>
@@ -68,7 +69,7 @@ export default class Popup extends Component {
   
   _renderNoFontsMessage = () => {
     return (
-      <div>No results</div>
+      <div className={styles.noResults}>¯\_(ツ)_/¯</div>
     );
   };
 
